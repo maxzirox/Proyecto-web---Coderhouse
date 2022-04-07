@@ -154,6 +154,12 @@ h3{
     max-width: 100px;
     max-height: 100px;
     text-align: center;
+    transition: width 2s, height 2s, margin 2s;
+}
+.tablaOfertas tr td img:hover{
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
 }
 .labelOfertas1{
     display: flex;
@@ -262,6 +268,12 @@ footer p{
     margin: 20px 30px 20px 30px;
     max-width: 100px;
     max-height: 100px;
+    text-align: center;
+}
+.tablaImagenes tr td img:hover{
+    margin: 0 auto;
+    max-width: 300px;
+    max-height: 300px;
     text-align: center;
 }
 .labelImg{
