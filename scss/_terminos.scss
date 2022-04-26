@@ -7,3 +7,12 @@
   #terminos p b{
     font-size: 30px;
   }
+  @media all and (max-width: 900px){
+    #terminos p{
+        font-size: 15px;
+    }
+    #terminos p b{
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
