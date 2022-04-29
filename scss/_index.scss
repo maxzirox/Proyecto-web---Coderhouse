@@ -32,9 +32,7 @@
     max-height: 600px;
 }
 h1{
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    @include flex-center;
     text-transform: uppercase;
     font-size: 25px;
     margin: 25px ;
@@ -46,12 +44,10 @@ h2{
     margin-top: 50px; 
 }
 #ofertas{
+    @include flex-center;
     align-items: center;
-    text-align: center;
     background-color: $fondoOfertas;
     margin-top: 50px;
-    display: flex;
-    justify-content: center;
 }
 .col{
     padding-top: 50px;
@@ -69,11 +65,9 @@ h2{
     margin: 0 auto;
 }
 footer{
-    display: flex;
+    @include flex-center;
     flex-flow: row wrap;
     background-color: $fondoOfertas;
-    text-align: center;
-    justify-content: center;
     margin: auto 0;
     padding-top: 20px;
     width: 100%;
