@@ -1,0 +1,26 @@
+#gamers{
+    @include flex-center;
+    align-items: center;
+    background-color: $fondoOfertas;
+    margin-top: 50px;
+    .col{
+        padding: 80px;
+        .card{
+            
+            .card-img-top{
+                height: 300px;
+                width: auto;
+                align-items: center;
+                margin: 0 auto;
+            }
+        }
+        
+    }
+}
+img{
+    max-width: 1000px;
+}
+#navGamers{
+    background: $fondoOfertas;
+    padding-bottom: 30px;
+}
