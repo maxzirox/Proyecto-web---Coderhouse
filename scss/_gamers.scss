@@ -30,8 +30,30 @@ img{
             padding: 50px;
             .card-img-top{
                 max-width: 170px;
-                align-items: center;
-                margin: 0 auto;
+                max-height: 200px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 798px){
+    #gamers{
+        .col{
+            padding: 30px;
+            .card-img-top{
+                max-width: 150px;
+                max-height: 150px;
+            }
+        }
+    }
+}
+@media all and (max-width: 765px){
+    #gamers{
+        .col{
+            padding: 30px;
+            .card-img-top{
+                height: 300px;
+                width: auto;
             }
         }
     }
