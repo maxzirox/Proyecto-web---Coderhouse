@@ -176,3 +176,11 @@ img {
 #navGamers {
   background: black;
   padding-bottom: 30px; }
+
+@media all and (max-width: 1440px) {
+  #gamers .col {
+    padding: 50px; }
+    #gamers .col .card-img-top {
+      max-width: 170px;
+      align-items: center;
+      margin: 0 auto; } }
