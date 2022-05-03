@@ -65,6 +65,12 @@ footer {
   color: aliceblue;
   text-transform: uppercase; }
 
+@media all and (max-width: 900px) {
+  h1 {
+    margin: 20px; }
+    h1 p img {
+      max-width: 200px; } }
+
 .col-md-7 col-lg-8 {
   display: flex;
   justify-content: center;
