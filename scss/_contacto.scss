@@ -6,9 +6,13 @@
 .container{
     margin-bottom: 40px;
 }
-@media all and (max-width: 900px){
+#logo img{
+    max-width: 120px;
+    padding: 0;
+    margin: 0;
+}
+@media all and (max-width: 920px){
     #contacto{
-        grid-area: contacto;
         padding-left: 0;
         padding-right: 0;
     }
