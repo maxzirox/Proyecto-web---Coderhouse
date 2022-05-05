@@ -27,6 +27,8 @@ h1 {
   justify-content: center;
   text-align: center;
   margin: 25px; }
+  h1 p img {
+    width: 400px; }
 
 h2 {
   text-align: center;
@@ -65,11 +67,13 @@ footer {
   color: aliceblue;
   text-transform: uppercase; }
 
-@media all and (max-width: 900px) {
-  h1 {
-    margin: 20px; }
-    h1 p img {
-      max-width: 200px; } }
+@media all and (max-width: 798px) {
+  h1 p img {
+    width: 300px; } }
+
+@media all and (max-width: 629px) {
+  h1 p img {
+    width: 150px; } }
 
 .col-md-7 col-lg-8 {
   display: flex;
@@ -120,8 +124,13 @@ footer {
     margin-right: .75rem;
     margin-left: .75rem; }
 
-.featurette-divider {
-  margin-top: 100px; }
+.infoSt .featurette-divider {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+.infoSt div h2 {
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 @media all and (max-width: 1316px) {
   #imagenSt p {
@@ -143,7 +152,10 @@ footer {
     transform: translate(-50%, -50%);
     color: #ee4d0e;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px; } }
+    font-size: 50px; }
+  .infoSt div h2 {
+    margin-top: 30px;
+    margin-bottom: 30px; } }
 
 @media all and (max-width: 740px) {
   #imagenSt p {
@@ -165,7 +177,7 @@ footer {
     transform: translate(-50%, -50%);
     color: #ee4d0e;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px; } }
+    font-size: 27px; } }
 
 #terminos p {
   text-align: center;
@@ -178,7 +190,8 @@ footer {
 
 @media all and (max-width: 900px) {
   #terminos p {
-    font-size: 15px; }
+    font-size: 15px;
+    margin: 10px 25px 10px 25px; }
   #terminos p b {
     font-size: 25px;
     margin-top: 10px; } }
@@ -205,6 +218,9 @@ img {
   background: black;
   padding-bottom: 30px; }
 
+h1 p img {
+  max-width: 600px; }
+
 @media all and (max-width: 1440px) {
   #gamers .col {
     padding: 50px; }
@@ -213,6 +229,8 @@ img {
       max-height: 200px; } }
 
 @media all and (max-width: 798px) {
+  h1 {
+    margin: 20px; }
   #gamers .col {
     padding: 30px; }
     #gamers .col .card-img-top {

@@ -28,9 +28,18 @@
         margin-left: .75rem;
       }
   }
-.featurette-divider{
-      margin-top: 100px;
-  }
+  
+  .infoSt{
+    .featurette-divider{
+        margin-top: 100px;
+        margin-bottom: 100px;
+     }
+     div h2{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+     
+}
   @media all and (max-width: 1316px){
     #imagenSt p{
         @include imagenParrafost;
@@ -43,6 +52,10 @@
         @include imagenParrafost;
         font-size: 50px;
     }
+    .infoSt div h2{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
     
 }
 @media all and (max-width: 740px){
@@ -51,11 +64,12 @@
         font-size: 40px;
     }
     
+    
 }
 @media all and (max-width: 600px){
     #imagenSt p{
         @include imagenParrafost;
-        font-size: 30px;
+        font-size: 27px;
     }
 
 }

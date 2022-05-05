@@ -31,6 +31,9 @@
 h1{
     @include flex-center;
     margin: 25px ;
+    p img{
+        width: 400px;
+    }
 }
 h2{
     text-align: center;
@@ -70,12 +73,15 @@ footer{
     text-transform: uppercase;
 }
 
-@media all and (max-width: 900px){
-    h1{
-        
-        margin: 20px ;
-        p img{
-            max-width: 200px;
-        }
+@media all and (max-width: 798px){
+    h1 p img{ 
+        width: 300px;
     }
+    
+}
+@media all and (max-width: 629px){
+    h1 p img{ 
+        width: 150px;
+    }
+    
 }
