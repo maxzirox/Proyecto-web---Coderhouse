@@ -75,18 +75,17 @@ footer {
   h1 p img {
     width: 150px; } }
 
-.col-md-7 col-lg-8 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px; }
-
-.container {
-  margin-bottom: 40px; }
-
 #logo img {
   max-width: 120px;
   padding: 0;
   margin: 0; }
+
+.container {
+  margin-bottom: 40px; }
+
+.iFrame {
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 @media all and (max-width: 920px) {
   #contacto {
