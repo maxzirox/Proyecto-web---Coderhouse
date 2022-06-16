@@ -91,14 +91,16 @@
 // EVENTO SUBMIT
 
 let miFormulario = document.getElementById("formContacto");
+let container = document.getElementById("container");
 
  miFormulario.addEventListener("submit", validarFormulario);
 
 function validarFormulario(e) {
     e.preventDefault();
 
-  let nombre = document.getElementById("firstName").value;
-  let apellido = document.getElementById("lastName").value;
+  let usuario = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
  
-    alert(`Bienvenido ${nombre}`);
+  container.innerHTML = "Gracias "+usuario+", por escribir tu opinion o sugerencia. Te enviaremos un correo a "+email+" con nuestra respuesta.";
+   
 }
