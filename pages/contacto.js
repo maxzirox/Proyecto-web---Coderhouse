@@ -90,8 +90,11 @@
 
 // EVENTO SUBMIT
 
+import { productos } from '../utils/productosMock.js'
+
 let miFormulario = document.getElementById("formContacto");
 let container = document.getElementById("container");
+
 
  miFormulario.addEventListener("submit", validarFormulario);
 
@@ -101,6 +104,14 @@ function validarFormulario(e) {
   let usuario = document.getElementById("username").value;
   let email = document.getElementById("email").value;
  
-  container.innerHTML = "Gracias "+usuario+", por escribir tu opinion o sugerencia. Te enviaremos un correo a "+email+" con nuestra respuesta.";
+  mostrarProductos(productos);
    
+}
+
+const mostrarProductos = (productos) => {
+  productos.map((item) => {
+    return(
+      container.innerHTML = "<div>Gracias "+item.titulo+", por escribir tu opinion o sugerencia. Te enviaremos un correo a "+item.categoria+" con nuestra respuesta.</div>"
+    )
+  })
 }
