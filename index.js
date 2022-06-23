@@ -1,7 +1,7 @@
 import { productos } from '../utils/productosMock.js'
 
 const contenedorProductos = document.getElementById('cardOfertasIndex');
-const contenedorCarrito = document.getElementById('carrito-contenedor');
+const contenedorCarrito = document.getElementById('carritoContenedor');
 const contadorCarrito = document.getElementById('contador-carrito');
 const totalPrecio = document.getElementById('total-precio');
 

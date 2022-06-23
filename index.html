@@ -46,7 +46,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <button id="cestaCarrito"><i class="fas fa-shopping-cart"></i><span id="contador-carrito">0</span></button>
+                <button id="cestaCarrito type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal""><i class="fas fa-shopping-cart"></i><span id="contador-carrito">0</span></button>
               </li>
             </ul>
           </div>
@@ -187,22 +187,27 @@
     © 2022 Copyright:
 </footer>  
 
-<div class="modal-contenedor">
-  <div class="modal-carrito">
-    <h3>Carrito</h3>
-    <button id="btnCerrar"><i class="fas fa-times-circle"></i></button>
-    <div id="carrito-contenedor">
-      <!-- <div class="productoEnCarrito">
-                        <p>Buzo 1</p>
-                        <p>Precio: $1200</p>
-                        <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-                    </div> -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+        <button type="button" class="btnCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="carritoContenedor">
+        ...
+      </div>
+      <div class="modal-footer">
+      </div>
+      <p class="producto-precio">Precio total: $<span id="total-precio"></span></p>
     </div>
-    <p class="producto-precio">Precio total: $<span id="total-precio"></span></p>
+      </div>
+    </div>
   </div>
 </div>
-
-
 
 <script type="module" src="index.js"></script>
 <script type="module" src="modal.js"></script>  
