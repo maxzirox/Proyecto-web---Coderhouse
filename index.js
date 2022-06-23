@@ -21,10 +21,21 @@ const agregarAlCarrito = (productoId) => {
     console.log(productoAgregar)
     carritoDeCompras.push(productoAgregar);
     productoAgregar.cantidad = 1;
-    contenedorCarrito.innerHTML += `<p>${productoAgregar.titulo}</p>
-                    <p>Precio:${productoAgregar.precio}</p>
-                    <p id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
-                    <button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>`
+    contenedorCarrito.innerHTML += `<div class="card mb-3" style="max-width: 540px;">
+                                      <div class="row g-0">
+                                        <div class="col-md-4">
+                                          <img src="${productoAgregar.imagen}" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                          <div class="card-body">
+                                            <h5 class="card-title">${productoAgregar.titulo}</h5>
+                                            <p class="card-text"id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
+                                            <p class="card-text">Precio:${productoAgregar.precio}</p>
+                                            <p class="card-text"><button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button></p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>`
 
     actualizarCarrito()
     let botonEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
@@ -53,15 +64,17 @@ const mostrarProductos = (productos) => {
 
     contenedorProductos.appendChild(div);
 
+    
+
     let boton = document.getElementById(`boton${producto.id}`)
     boton.addEventListener('click', () => {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Producto agregado',
-        showConfirmButton: false,
-        timer: 1500
-      })
+      Toastify({
+
+        text: "Producto agregado",
+        
+        duration: 3000
+        
+        }).showToast();
       agregarAlCarrito(producto.id)
     })
 
