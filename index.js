@@ -1,5 +1,6 @@
 import { productos } from '../utils/productosMock.js'
 
+
 const contenedorProductos = document.getElementById('cardOfertasIndex');
 const contenedorCarrito = document.getElementById('carritoContenedor');
 const contadorCarrito = document.getElementById('contador-carrito');
@@ -19,16 +20,12 @@ const agregarAlCarrito = (productoId) => {
     let productoAgregar = productos.find(prod => prod.id == productoId);
     console.log(productoAgregar)
     carritoDeCompras.push(productoAgregar);
-
     productoAgregar.cantidad = 1;
-    let div = document.createElement('div');
-    div.classList.add('productoEnCarrito');
-    div.innerHTML = `<p>${productoAgregar.titulo}</p>
+    contenedorCarrito.innerHTML += `<p>${productoAgregar.titulo}</p>
                     <p>Precio:${productoAgregar.precio}</p>
                     <p id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
                     <button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>`
 
-    contenedorCarrito.appendChild(div)
     actualizarCarrito()
     let botonEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
     botonEliminar.addEventListener('click', () => {
@@ -51,13 +48,20 @@ const mostrarProductos = (productos) => {
                           <p>${producto.descripcion}</p>
                           <p>Talle: ${producto.categoria}</p>
                           <p> ${producto.precio}</p>
-                          <a class="btn-floating halfway-fab waves-effect waves-light red" id=boton${producto.id}><i class="material-icons">add_shopping_cart</i></a>
+                          <button class="btn-floating halfway-fab waves-effect waves-light red" id=boton${producto.id}><i class="material-icons">add_shopping_cart</i></button>
                       </div>`
 
     contenedorProductos.appendChild(div);
 
     let boton = document.getElementById(`boton${producto.id}`)
     boton.addEventListener('click', () => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto agregado',
+        showConfirmButton: false,
+        timer: 1500
+      })
       agregarAlCarrito(producto.id)
     })
 
