@@ -56,9 +56,16 @@ h2{
     }
 }
 .card-footer{
+    display: flex;
+    flex-flow: column;
     font-size: 25px;
     text-transform: uppercase;
     color: black;
+    #btnAdd{
+        border-radius: 20px;
+        color:aliceblue;
+        background-color: black;
+    }
 }
 
 

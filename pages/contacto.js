@@ -100,18 +100,55 @@ let container = document.getElementById("container");
 
 function validarFormulario(e) {
     e.preventDefault();
-
-  let usuario = document.getElementById("username").value;
-  let email = document.getElementById("email").value;
+  localStorage.setItem('nombre', document.getElementById("username").value);
+  localStorage.setItem('email', document.getElementById("email").value);
+  let usuario =  localStorage.getItem('nombre');
+  let email =  localStorage.getItem('email');
  
-  mostrarProductos(productos);
+  container.innerHTML = "Gracias "+usuario+", por escribir tu opinion o sugerencia. Te enviaremos un correo a "+email+" con nuestra respuesta.";
    
 }
 
-const mostrarProductos = (productos) => {
-  productos.map((item) => {
-    return(
-      container.innerHTML = "<div>Gracias "+item.titulo+", por escribir tu opinion o sugerencia. Te enviaremos un correo a "+item.categoria+" con nuestra respuesta.</div>"
-    )
-  })
+
+
+/*
+
+    /*le asignamos con setItem una clave y un valor a localstorage
+luego le pasamos una clave al metodo getItem de local storage para asignarla en una variable
+para posterior mostrarla por consola
+
+localStorage.setItem('nombre', 'alo');
+localStorage.setItem('seleccionados', [1,2,3,4]);
+sessionStorage.setItem('esValido', false);
+
+let nombre = localStorage.getItem('nombre');
+let lista = localStorage.getItem('seleccionados').split(',');
+let booleano = (sessionStorage.getItem('esValido') == 'true')
+
+console.log("nombre de local storage: "+nombre);
+console.log(lista)
+console.log(booleano)
+//asi recorremos nuestro localstorage
+for(let i=0; i < localStorage.length; i++){
+  let clave = localStorage.key(i);
+  console.log(i + " clave: "+ clave)
+  console.log(i + 'valor: '+ localStorage.getItem(clave))
 }
+//eliminar informacion localStorage removeItem
+localStorage.removeItem('nombre')
+//elimina todo el localStorage
+localStorage.clear()
+
+
+/* session storage se utiliza para guardar informacion como la sesion de una usuario solo hasta que se 
+cierre la pestaña del navegador y solo guarda en esa pestaña se utiliza igual que localStorage pero cambiando por sessionStorage
+
+//JSON stingify para guardar un objeto en formato json en localstorage
+ const producto1 = { id:2, producto: 'arroz'};
+ const productosJson = JSON.stringify(producto1);
+console.log(productosJson);
+localStorage.setItem('elemento1', producto1)
+//json.parse para transformar formato json y mostrar en pantalla o consola
+const producto2 =JSON.parse(localStorage.getItem('elemento1'))
+
+*/
