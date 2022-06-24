@@ -6,27 +6,26 @@ const contenedorCarrito = document.getElementById('carritoContenedor');
 const contadorCarrito = document.getElementById('contador-carrito');
 const totalPrecio = document.getElementById('total-precio');
 
+
+localStorage.setItem("Productos", JSON.stringify(productos))
+
 let carritoDeCompras = []
 
-const carritoLocal = (clave, valor) => {
-  localStorage.setItem(clave, valor);
-};
 
-// Guardar todo en un array de objetos
-//carritoLocal("Productos", JSON.stringify(productos));
 
-// // Guardar productos indidualmente
-// for ( const producto of productos ) {
-//     carritoLocal(producto.producto, JSON.stringify(producto));
-// }
+const productosIndex = JSON.parse(localStorage.getItem("Productos"));
+
 
 const agregarAlCarrito = (productoId) => {
+  const carritoLocal = JSON.parse(localStorage.getItem("Carrito"));
   let repetido = carritoDeCompras.find(productoR => productoR.id == productoId);
+
   if (repetido) {
     repetido.cantidad++
     document.getElementById(`cantidad${repetido.id}`).innerHTML = `<p id=cantidad${repetido.id}>Cantidad:${repetido.cantidad}</p>`
     actualizarCarrito()
   } else {
+    // a productos agregar le asignamos una un producto  que coincidan sus id
     let productoAgregar = productos.find(prod => prod.id == productoId);
     console.log(productoAgregar)
     carritoDeCompras.push(productoAgregar);
@@ -49,7 +48,6 @@ const agregarAlCarrito = (productoId) => {
                                     </div>`
     contenedorCarrito.appendChild(div)
     actualizarCarrito()
-    carritoLocal("Productos", JSON.stringify(carritoDeCompras))
     let botonEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
     botonEliminar.addEventListener('click', () => {
       botonEliminar.parentElement.remove()
@@ -59,8 +57,8 @@ const agregarAlCarrito = (productoId) => {
   }
 }
 
-const mostrarProductos = (productos) => {
-  productos.forEach(producto => {
+const mostrarProductos = (productosIndex) => {
+    productosIndex.forEach(producto => {
     let div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML += `<div class="card h-100">
@@ -93,9 +91,10 @@ const mostrarProductos = (productos) => {
   });
 }
 
-mostrarProductos(productos);
+mostrarProductos(productosIndex);
 
 const actualizarCarrito = () => {
+  localStorage.setItem("Carrito", JSON.stringify(carritoDeCompras))
   contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad, 0);
   totalPrecio.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0)
 }
