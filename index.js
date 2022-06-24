@@ -8,7 +8,17 @@ const totalPrecio = document.getElementById('total-precio');
 
 let carritoDeCompras = []
 
-const productosJson = JSON.stringify(productos);
+const carritoLocal = (clave, valor) => {
+  localStorage.setItem(clave, valor);
+};
+
+// Guardar todo en un array de objetos
+//carritoLocal("Productos", JSON.stringify(productos));
+
+// // Guardar productos indidualmente
+// for ( const producto of productos ) {
+//     carritoLocal(producto.producto, JSON.stringify(producto));
+// }
 
 const agregarAlCarrito = (productoId) => {
   let repetido = carritoDeCompras.find(productoR => productoR.id == productoId);
@@ -21,7 +31,8 @@ const agregarAlCarrito = (productoId) => {
     console.log(productoAgregar)
     carritoDeCompras.push(productoAgregar);
     productoAgregar.cantidad = 1;
-    contenedorCarrito.innerHTML += `<div class="card mb-3" style="max-width: 540px;">
+    let div = document.createElement('div');
+    div.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
                                       <div class="row g-0">
                                         <div class="col-md-4">
                                           <img src="${productoAgregar.imagen}" class="img-fluid rounded-start" alt="...">
@@ -31,13 +42,14 @@ const agregarAlCarrito = (productoId) => {
                                             <h5 class="card-title">${productoAgregar.titulo}</h5>
                                             <p class="card-text"id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
                                             <p class="card-text">Precio:${productoAgregar.precio}</p>
-                                            <p class="card-text"><button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button></p>
                                           </div>
                                         </div>
+                                        <button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
                                       </div>
                                     </div>`
-
+    contenedorCarrito.appendChild(div)
     actualizarCarrito()
+    carritoLocal("Productos", JSON.stringify(carritoDeCompras))
     let botonEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
     botonEliminar.addEventListener('click', () => {
       botonEliminar.parentElement.remove()
@@ -87,3 +99,4 @@ const actualizarCarrito = () => {
   contadorCarrito.innerText = carritoDeCompras.reduce((acc, el) => acc + el.cantidad, 0);
   totalPrecio.innerText = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0)
 }
+
