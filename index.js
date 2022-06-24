@@ -44,7 +44,7 @@ const agregarAlCarrito = (productoId) => {
                                             <p class="card-text">Precio:${productoAgregar.precio}</p>
                                           </div>
                                         </div>
-                                        <button id=eliminar${productoAgregar.id} class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                                        <button id=eliminar${productoAgregar.id} class="btn btn-danger">Eliminar</button>
                                       </div>
                                     </div>`
     contenedorCarrito.appendChild(div)
@@ -71,7 +71,7 @@ const mostrarProductos = (productos) => {
                           <p>${producto.descripcion}</p>
                           <p>Talle: ${producto.categoria}</p>
                           <p> ${producto.precio}</p>
-                          <button class="btn-floating halfway-fab waves-effect waves-light red" id=boton${producto.id}><i class="material-icons">add_shopping_cart</i></button>
+                          <button class="btn btn-dark" id=boton${producto.id}>Agregar</button>
                       </div>`
 
     contenedorProductos.appendChild(div);
