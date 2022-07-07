@@ -10,10 +10,11 @@ const totalPrecio = document.getElementById('total-precio');
 localStorage.setItem("Productos", JSON.stringify(productos))
 
 let carritoDeCompras = []
+let productosIndex = []
 
 
 
-const productosIndex = JSON.parse(localStorage.getItem("Productos"));
+//const productosIndex = JSON.parse(localStorage.getItem("Productos"));
 
 
 const agregarAlCarrito = (productoId) => {
@@ -57,8 +58,11 @@ const agregarAlCarrito = (productoId) => {
   }
 }
 
-const mostrarProductos = (productosIndex) => {
-    productosIndex.forEach(producto => {
+const mostrarProductos = () => {
+  fetch('/data.json')
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach(producto => {
     let div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML += `<div class="card h-100">
@@ -88,7 +92,7 @@ const mostrarProductos = (productosIndex) => {
       agregarAlCarrito(producto.id)
     })
 
-  });
+  });})
 }
 
 mostrarProductos(productosIndex);
