@@ -41,18 +41,23 @@ h2{
     font-size: 25px;
     margin-top: 50px; 
 }
-#ofertas{
+.ofertas{
     @include flex-center;
     align-items: center;
     background-color: $fondoOfertas;
     margin-top: 50px;
     .col{
-        padding-top: 50px;
-        .card-img-top{
-            max-width: 150px;
-            align-items: center;
-            margin: 0 auto;
+        padding: 80px;
+        .card{
+            
+            .card-img-top{
+                height: 300px;
+                width: auto;
+                align-items: center;
+                margin: 0 auto;
+            }
         }
+        
     }
 }
 .card-footer{

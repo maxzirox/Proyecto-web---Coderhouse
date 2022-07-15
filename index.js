@@ -10,7 +10,6 @@ const totalPrecio = document.getElementById('total-precio');
 localStorage.setItem("Productos", JSON.stringify(productos))
 
 let carritoDeCompras = []
-let productosIndex = []
 
 
 
@@ -33,20 +32,20 @@ const agregarAlCarrito = (productoId) => {
     productoAgregar.cantidad = 1;
     let div = document.createElement('div');
     div.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
-                                      <div class="row g-0">
-                                        <div class="col-md-4">
-                                          <img src="${productoAgregar.imagen}" class="img-fluid rounded-start" alt="...">
-                                        </div>
-                                        <div class="col-md-8">
-                                          <div class="card-body">
-                                            <h5 class="card-title">${productoAgregar.titulo}</h5>
-                                            <p class="card-text"id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
-                                            <p class="card-text">Precio:${productoAgregar.precio}</p>
-                                          </div>
-                                        </div>
-                                        <button id=eliminar${productoAgregar.id} class="btn btn-danger">Eliminar</button>
-                                      </div>
-                                    </div>`
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="${productoAgregar.imagen}" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${productoAgregar.titulo}</h5>
+                                <p class="card-text"id=cantidad${productoAgregar.id}>Cantidad:${productoAgregar.cantidad}</p>
+                                <p class="card-text">Precio:${productoAgregar.precio}</p>
+                            </div>
+                          </div>
+                            <button id=eliminar${productoAgregar.id} class="btn btn-danger">Eliminar</button>
+                        </div>
+                      </div>`
     contenedorCarrito.appendChild(div)
     actualizarCarrito()
     let botonEliminar = document.getElementById(`eliminar${productoAgregar.id}`)
@@ -64,16 +63,19 @@ const mostrarProductos = () => {
   .then((data) => {
     data.forEach(producto => {
     let div = document.createElement('div');
-    div.classList.add('card');
-    div.innerHTML += `<div class="card h-100">
-                          <h5 class="card-title">${producto.titulo}</h5>
-                          <img card-img-top src=${producto.imagen}> 
-                      </div>
-                      <div class="card-text">
-                          <p>${producto.descripcion}</p>
-                          <p>Talle: ${producto.categoria}</p>
-                          <p> ${producto.precio}</p>
-                          <button class="btn btn-dark" id=boton${producto.id}>Agregar</button>
+    div.classList.add('ofertas');
+    div.innerHTML += `<div class="col">
+                        <div class="card h-100">
+                          <img src=${producto.imagen} class="card-img-top" alt="gameri7">
+                          <div class="card-body">
+                            <h5 class="card-title">${producto.titulo}</h5>
+                            <p class="card-text">${producto.descripcion}</p>
+                          </div>
+                          <div class="card-footer">
+                            <small class="text-muted">Precio $${producto.precio}</small>
+                            <button class="btn btn-dark" id=boton${producto.id}>Agregar</button>
+                          </div>
+                        </div>
                       </div>`
 
     contenedorProductos.appendChild(div);
@@ -95,7 +97,7 @@ const mostrarProductos = () => {
   });})
 }
 
-mostrarProductos(productosIndex);
+mostrarProductos();
 
 const actualizarCarrito = () => {
   localStorage.setItem("Carrito", JSON.stringify(carritoDeCompras))
