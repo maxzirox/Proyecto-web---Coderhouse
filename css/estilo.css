@@ -22,13 +22,13 @@
   #carrusel #carrusel img {
     max-height: 600px; }
 
-h1 {
+.imgLogo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   margin: 25px; }
-  h1 p img {
+  .imgLogo p img {
     width: 400px; }
 
 h2 {
