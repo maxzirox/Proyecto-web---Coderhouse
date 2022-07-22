@@ -280,31 +280,45 @@ miFormulario.addEventListener('submit', () => {
   let mail = document.getElementById('mailCheck').value
   let direccion = document.getElementById('dirCheck').value
   let cc = document.getElementById('ccCheck').value
+  let ccParcial = cc.substring(0, 8) + "XXXX"
+  let total = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
+  let date = new Date();
   main.innerHTML = `
-                      <div class="row g-5">
-                      <div class="col-md-5 col-lg-4 order-md-last">
-                        <h2 class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="text-primary">Boleta</span>
-                        </h2>
-                        <div>
-                          <p>Felicidades ${nombre} ${apellido}, has realizado un pago exitoso.</p>
-                          <p>Hemos enviado el comprobante a tu correo: ${mail}</p>
-                        </div>
-                        <ul  id="cartCheck" class="list-group mb-3">
-                          <li  class="list-group-item d-flex justify-content-between lh-sm">
-                            
-                          </li>
-                          
-                          <li class="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong id="totalCheck" >$20</strong>
-                          </li>
-                        </ul>
+                      
+                          <div id="contBoletas" class="col-md-5 col-lg-4 order-md-last">
+                            <h2 class="d-flex justify-content-between align-items-center mb-3">
+                              <span class="text-primary">
+                                  Boleta electronica<br/>
+                              Kpc'Store <br/>Iquique <br/> </p>
+                              </span>
+                            </h2>                           
+                            <div class="d-flex justify-content-center">
+                              <p>fecha: ${date}</p>
+                              <p>Felicidades ${nombre} ${apellido}, has realizado un pago exitoso.</p>
+                              <p>Hemos enviado el comprobante a tu correo: ${mail}</p>
+                            </div>
+                            <ul  id="cartCheck" class="list-group mb-3">
+                              <li  class="list-group-item d-flex justify-content-between lh-sm">
+                                
+                              </li>
+                              
+                              <li class="list-group-item d-flex justify-content-between">
+                                <span>Total (USD)</span>
+                                <strong id="totalCheck" >$20</strong>
+                              </li>
+                            </ul>
+                            <div class="d-flex justify-content-center">
+                              <p>Numer de Tarjeta: ${ccParcial}</p>
+                              <p>Direccion de envio: ${direccion}</p>
+                            </div>
+                          </div>
 
-                      </div>
-                   `
+                      </div>  
+                    
+                   `;
+  totalCheck.innerText = `${total} clp`;
 })
-totalCheck.innerText = `${total} clp`;
+
 }
 
 
