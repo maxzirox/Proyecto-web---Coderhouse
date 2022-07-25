@@ -44,7 +44,7 @@ const agregarAlCarrito = (productoId) => {
                             </div>
                           </div>
                             <button id=eliminar${productoAgregar.id} class="btn btn-danger">Eliminar</button>
-                            <button id="btnCheck" class="btn btn-danger">Pagar</button>
+                            
                         </div>
                       </div>`
     contenedorCarrito.appendChild(div)
@@ -135,7 +135,7 @@ const checkOut = (prodCart) => {
           </li>
           
           <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
+            <span>Total (CLP)</span>
             <strong id="totalCheck" >$20</strong>
           </li>
         </ul>
@@ -275,6 +275,7 @@ prodCart.forEach(producto => {
 
 miFormulario.addEventListener('submit', () => {
 
+  let totalCheck = document.getElementById('totalCheck');
   let nombre = document.getElementById('nombreCheck').value
   let apellido = document.getElementById('apellidoCheck').value
   let mail = document.getElementById('mailCheck').value
@@ -283,6 +284,7 @@ miFormulario.addEventListener('submit', () => {
   let ccParcial = cc.substring(0, 8) + "XXXX"
   let total = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
   let date = new Date();
+  totalCheck.innerText = `$${total} clp`;
   main.innerHTML = `
                       
                           <div id="contBoletas" class="col-md-5 col-lg-4 order-md-last">
@@ -303,8 +305,8 @@ miFormulario.addEventListener('submit', () => {
                               </li>
                               
                               <li class="list-group-item d-flex justify-content-between">
-                                <span>Total (USD)</span>
-                                <strong id="totalCheck" >$20</strong>
+                                <span>Total (CLP)</span>
+                                <strong id="totalCheck" >$${total}</strong>
                               </li>
                             </ul>
                             <div class="d-flex justify-content-center">
@@ -316,7 +318,23 @@ miFormulario.addEventListener('submit', () => {
                       </div>  
                     
                    `;
-  totalCheck.innerText = `${total} clp`;
+  
+  let cartCheck = document.getElementById('cartCheck');
+  prodCart.forEach(producto => {
+  
+    cartCheck.innerHTML += 
+    `
+    <li id="cartCheck" class="list-group-item d-flex justify-content-between lh-sm">
+      <div>
+        <h6 class="my-0">${producto.titulo}</h6>
+        <small class="text-muted">${producto.categoria}</small>
+      </div>
+      <span class="text-muted">${producto.precio}clp</span>
+    </li>
+    `;
+  
+  })
+  
 })
 
 }

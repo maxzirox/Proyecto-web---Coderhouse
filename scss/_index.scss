@@ -66,6 +66,15 @@ h2{
     flex-flow: column wrap;
     text-align: center;
     justify-content: center;
+    margin: 0 auto;
+    h2{
+        margin: 0 auto;
+    }
+    div{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
 .card-footer{
     display: flex;
