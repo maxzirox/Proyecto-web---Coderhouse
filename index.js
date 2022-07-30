@@ -12,10 +12,6 @@ localStorage.setItem("Productos", JSON.stringify(productos))
 let carritoDeCompras = []
 
 
-
-//const productosIndex = JSON.parse(localStorage.getItem("Productos"));
-
-
 const agregarAlCarrito = (productoId) => {
   const carritoLocal = JSON.parse(localStorage.getItem("Carrito"));
   let repetido = carritoDeCompras.find(productoR => productoR.id == productoId);
@@ -25,7 +21,6 @@ const agregarAlCarrito = (productoId) => {
     document.getElementById(`cantidad${repetido.id}`).innerHTML = `<p id=cantidad${repetido.id}>Cantidad:${repetido.cantidad}</p>`
     actualizarCarrito()
   } else {
-    // a productos agregar le asignamos una un producto  que coincidan sus id
     let productoAgregar = productos.find(prod => prod.id == productoId);
     console.log(productoAgregar)
     carritoDeCompras.push(productoAgregar);
@@ -85,8 +80,6 @@ const mostrarProductos = () => {
 
     contenedorProductos.appendChild(div);
 
-    
-
     let boton = document.getElementById(`boton${producto.id}`)
     boton.addEventListener('click', () => {
       Toastify({
@@ -103,6 +96,23 @@ const mostrarProductos = () => {
 }
 
 mostrarProductos();
+
+const mostrarProductosCheck = (prodCart, contenedor)=>{
+  prodCart.forEach(producto => {
+  
+    contenedor.innerHTML += 
+    `
+    <li id="cartCheck" class="list-group-item d-flex justify-content-between lh-sm">
+      <div>
+        <h6 class="my-0">${producto.titulo}</h6>
+        <small class="text-muted">${producto.categoria}</small>
+      </div>
+      <span class="text-muted">${producto.precio}clp</span>
+    </li>
+    `;
+  
+  })
+}
 
 const actualizarCarrito = () => {
   localStorage.setItem("Carrito", JSON.stringify(carritoDeCompras));
@@ -244,33 +254,20 @@ const checkOut = (prodCart) => {
     </div>
   </main>
 
-</div> `;
+  </div> `;
 
-let cartCheck = document.getElementById('cartCheck');
-let cantidadCheck = document.getElementById('cantidadCheck');
-let totalCheck = document.getElementById('totalCheck');
-let cantidad = carritoDeCompras.reduce((acc, el) => acc + el.cantidad, 0);
-let total = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
-//let btnCheck = document.getElementById('btnCheck')
-let miFormulario = document.getElementById("formCheck");
+  let cartCheck = document.getElementById('cartCheck');
+  let cantidadCheck = document.getElementById('cantidadCheck');
+  let totalCheck = document.getElementById('totalCheck');
+  let cantidad = carritoDeCompras.reduce((acc, el) => acc + el.cantidad, 0);
+  let total = carritoDeCompras.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
 
-cantidadCheck.innerText = `${cantidad}`;
-totalCheck.innerText = `${total} clp`;
-prodCart.forEach(producto => {
-  
-  cartCheck.innerHTML += 
-  `
-  <li id="cartCheck" class="list-group-item d-flex justify-content-between lh-sm">
-    <div>
-      <h6 class="my-0">${producto.titulo}</h6>
-      <small class="text-muted">${producto.categoria}</small>
-    </div>
-    <span class="text-muted">${producto.precio}clp</span>
-  </li>
-  `;
+  let miFormulario = document.getElementById("formCheck");
 
-})
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+  cantidadCheck.innerText = `${cantidad}`;
+  totalCheck.innerText = `${total} clp`;
+  mostrarProductosCheck(prodCart, cartCheck)
+
 
 
 miFormulario.addEventListener('submit', () => {
@@ -320,20 +317,7 @@ miFormulario.addEventListener('submit', () => {
                    `;
   
   let cartCheck = document.getElementById('cartCheck');
-  prodCart.forEach(producto => {
-  
-    cartCheck.innerHTML += 
-    `
-    <li id="cartCheck" class="list-group-item d-flex justify-content-between lh-sm">
-      <div>
-        <h6 class="my-0">${producto.titulo}</h6>
-        <small class="text-muted">${producto.categoria}</small>
-      </div>
-      <span class="text-muted">${producto.precio}clp</span>
-    </li>
-    `;
-  
-  })
+  mostrarProductosCheck(prodCart, cartCheck)
   
 })
 
