@@ -1,0 +1,75 @@
+#cards{
+    margin: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#imagenSt{
+    position: relative;
+    display: flex;
+    img{
+        filter: blur(3px);
+    }
+    p{
+        @include imagenParrafost;
+        font-size: 90px;
+    }
+}  
+#Referencias{
+      margin-top: 100px;
+      .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      h2 {
+        font-weight: 400;
+      }
+      .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+      }
+  }
+  
+  .infoSt{
+    .featurette-divider{
+        margin-top: 100px;
+        margin-bottom: 100px;
+     }
+     div h2{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+     
+}
+  @media all and (max-width: 1316px){
+    #imagenSt p{
+        @include imagenParrafost;
+        font-size: 60px;
+    }
+    
+}
+@media all and (max-width: 900px){
+    #imagenSt p{
+        @include imagenParrafost;
+        font-size: 50px;
+    }
+    .infoSt div h2{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+}
+@media all and (max-width: 740px){
+    #imagenSt p{
+        @include imagenParrafost;
+        font-size: 40px;
+    }
+    
+    
+}
+@media all and (max-width: 600px){
+    #imagenSt p{
+        @include imagenParrafost;
+        font-size: 27px;
+    }
+
+}

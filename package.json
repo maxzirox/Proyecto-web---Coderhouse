@@ -1,0 +1,17 @@
+{
+  "name": "kpcstore",
+  "version": "1.0.0",
+  "description": "KPC'store es una tienda virtual en la cual tenemos diferentes articulos gamers en venta, ya sean monitores, tarjetas de video, pc gamers, placas madres, etc. Queremos ser los mejores del merado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/estilo.scss css/estilo.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "author": "Maxi Guzman",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15"
+  }
+}

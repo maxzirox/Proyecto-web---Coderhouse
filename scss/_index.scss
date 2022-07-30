@@ -1,0 +1,115 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;  
+}
+
+
+.container-fluid{
+    margin: 0;
+    max-width: 100vw;
+    color: $colorLetrasNav;
+    text-transform: uppercase;
+    .navbar-brand{
+        text-transform: uppercase;
+        color: $colorLetrasNav;
+        font-size: 30px;
+    }
+}
+#carrusel{
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #carrusel img{
+        max-height: 600px;
+    }
+    
+}
+
+.imgLogo{
+    @include flex-center;
+    margin: 25px ;
+    p img{
+        width: 400px;
+    }
+}
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    margin-top: 50px; 
+}
+.ofertas{
+    @include flex-center;
+    align-items: center;
+    background-color: $fondoOfertas;
+    margin-top: 50px;
+    .col{
+        padding: 80px;
+        .card{
+            
+            .card-img-top{
+                height: 300px;
+                width: auto;
+                align-items: center;
+                margin: 0 auto;
+                color: black;
+            }
+        }
+        
+    }
+}
+#contBoletas{
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    h2{
+        margin: 0 auto;
+    }
+    div{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+.card-footer{
+    display: flex;
+    flex-flow: column;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    #btnAdd{
+        border-radius: 20px;
+        color:aliceblue;
+        background-color: black;
+    }
+}
+
+
+footer{
+    @include flex-center;
+    flex-flow: row wrap;
+    background-color: $fondoOfertas;
+    margin: auto 0;
+    padding-top: 20px;
+    width: 100%;
+    color: $colorLetrasNav;
+    text-transform: uppercase;
+}
+
+@media all and (max-width: 798px){
+    h1 p img{ 
+        width: 300px;
+    }
+    
+}
+@media all and (max-width: 629px){
+    h1 p img{ 
+        width: 150px;
+    }
+    
+}
